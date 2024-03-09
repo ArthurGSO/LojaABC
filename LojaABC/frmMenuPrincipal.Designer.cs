@@ -39,6 +39,21 @@ namespace LojaABC
             btnClientes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // btnClientes
+            // 
+            btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnClientes.Image = global::LojaABC.Properties.Resources.clientes;
+            btnClientes.Location = new System.Drawing.Point(30, 31);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new System.Drawing.Size(230, 246);
+            btnClientes.TabIndex = 0;
+            btnClientes.Text = "Clientes";
+            btnClientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            btnClientes.UseVisualStyleBackColor = true;
+            btnClientes.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnVoltar
             // 
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -119,21 +134,6 @@ namespace LojaABC
             this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnProdutos.UseVisualStyleBackColor = true;
-            // 
-            // btnClientes
-            // 
-            btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnClientes.Image = global::LojaABC.Properties.Resources.clientes;
-            btnClientes.Location = new System.Drawing.Point(30, 31);
-            btnClientes.Name = "btnClientes";
-            btnClientes.Size = new System.Drawing.Size(230, 246);
-            btnClientes.TabIndex = 0;
-            btnClientes.Text = "Clientes";
-            btnClientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            btnClientes.UseVisualStyleBackColor = true;
-            btnClientes.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmMenuPrincipal
             // 

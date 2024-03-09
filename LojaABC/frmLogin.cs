@@ -16,5 +16,10 @@ namespace LojaABC
         {
             InitializeComponent();
         }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+                
+        }
     }
 }
