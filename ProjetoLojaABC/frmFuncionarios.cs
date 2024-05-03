@@ -111,6 +111,7 @@ namespace ProjetoLojaABC
         {
             habilitarCampos();
             txtCodigo.Enabled = false;
+            buscarCodigoFunc();
         }
 
         //método cadastrar funcionarios
@@ -143,11 +144,27 @@ namespace ProjetoLojaABC
 
         }
 
+        public void buscarCodigoFunc()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select codFunc from tbFuncionarios";
+            comm.CommandType = CommandType.Text;
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+             txtCodigo.Text = DR.GetInt32(0).ToString();
+ 
+            Conexao.fecharConexao();
+        }
+
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
-            if (txtCodigo.Text.Equals("") || txtNome.Text.Equals("") ||
+            if (txtNome.Text.Equals("") ||
                 txtEndereco.Text.Equals("") || txtCidade.Text.Equals("") ||
                 txtBairro.Text.Equals("") || txtNumero.Text.Equals("") ||
                 txtEmail.Text.Equals("") || mskCelular.Text.Equals("     -")

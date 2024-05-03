@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,16 @@ namespace ProjetoLojaABC
             rdbCodigo.Checked = false;
             rdbNome.Checked = false;
             txtDescricao.Focus();
+        }
+
+        public void buscarPorCodigo()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbFuncionarios WHERE codfunc = 1";
+            comm.CommandType = CommandType.Text;
+            comm.Connection = Conexao.obterConexao();
+
+
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)

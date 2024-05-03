@@ -9,7 +9,7 @@ namespace ProjetoLojaABC
 {
     class Conexao
     {
-        private static string connString = "Server=localhost;Port=3306;Database=dbLoja;Uid=etecia;Pwd=123456";
+        private static string connString = "Server=localhost;Port=3306;Database=dbLoja;Uid=root;Pwd=";
 
         private static MySqlConnection con = null;
 
