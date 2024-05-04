@@ -160,6 +160,32 @@ namespace ProjetoLojaABC
             Conexao.fecharConexao();
         }
 
+        public void carregaFuncionario()
+        {
+            MySqlCommand comm = new MySqlCommand;
+            comm.CommandText = "";
+            comm.CommandType = CommandType.Text;
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader RD;
+            RD = comm.ExecuteReader();
+
+            RD.Read();
+
+            txtCodigo.Text = RD.GetInt32(0).ToString();
+            txtNome.Text = RD.GetString(1);
+            txtEmail.Text = RD.GetString(2);
+            mskCPF.Text = RD.GetString(3);
+            mskCelular.Text = RD.GetString(4);
+            txtEndereco.Text = RD.GetString(5);
+            txtNumero.Text = RD.GetString(6);
+            mskCEP.Text = RD.GetString(7);
+            txtBairro.Text = RD.GetString(8);
+            txtCidade.Text = RD.GetString(9);
+            cbbEstado.Text = RD.GetString(10);
+
+            Conexao.fecharConexao();
+        }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {

@@ -56,9 +56,11 @@ namespace ProjetoLojaABC
 
             MySqlDataReader DR;
             DR = comm.ExecuteReader();
-            DR.Read();
 
-            lstPesquisar.Items.Add(DR.GetString(0));
+            while (DR.Read())
+            {
+                lstPesquisar.Items.Add(DR.GetString(1));
+            }
 
             Conexao.fecharConexao();
         }
@@ -82,6 +84,7 @@ namespace ProjetoLojaABC
                     else
                     {
                         //busca por codigo
+                        buscarPorCodigo(txtDescricao);
 
                     }
                 }
@@ -98,7 +101,8 @@ namespace ProjetoLojaABC
                     }
                     else
                     {
-                        //busca por codigo
+                        //busca por nome
+                        buscarPorNome(txtDescricao);
 
                     }
                 }
@@ -107,6 +111,16 @@ namespace ProjetoLojaABC
 
                 }
             }
+        }
+
+        private void buscarPorNome(TextBox txtDescricao)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void buscarPorCodigo(TextBox txtDescricao)
+        {
+            throw new NotImplementedException();
         }
 
         private void btnTeste_Click(object sender, EventArgs e)
