@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ProjetoLojaABC
 {
@@ -25,14 +25,42 @@ namespace ProjetoLojaABC
             txtDescricao.Focus();
         }
 
-        public void buscarPorCodigo()
+        public void buscarPorCodigo(int codigo)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbFuncionarios WHERE codfunc = 1";
+            comm.CommandText = "select * from tbFuncionarios WHERE codfunc = @codfunc";
             comm.CommandType = CommandType.Text;
             comm.Connection = Conexao.obterConexao();
 
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@Codfunc", MySqlDbType.Int32, 11).Value = codigo;
 
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+            lstPesquisar.Items.Add(DR.GetInt32(0));
+
+            Conexao.fecharConexao();
+        }
+
+        public void buscarPorNome(string nome)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbFuncionarios WHERE codnome like = '%@nome%'";
+            comm.CommandType = CommandType.Text;
+            comm.Connection = Conexao.obterConexao();
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome", MySqlDbType.String, 100).Value = nome;
+
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+            lstPesquisar.Items.Add(DR.GetString(0));
+
+            Conexao.fecharConexao();
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
